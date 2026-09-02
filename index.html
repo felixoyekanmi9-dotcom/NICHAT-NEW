@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NICHAT — Connect. Chat. Belong.</title>
+
+  <meta
+    name="description"
+    content="NICHAT is a modern messaging platform for connecting with friends and people you care about."
+  >
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  >
+
+  <link rel="stylesheet" href="./dashboard.css">
+</head>
+
+<body>
+
+  <div class="app">
+
+    <!-- =========================================================
+         SIDEBAR
+    ========================================================== -->
+    <aside class="sidebar">
+
+      <!-- Sidebar Header -->
+      <div class="sidebar-header">
+
+        <div class="nichat-brand">
+
+          <div class="logo-wrapper">
+            <img
+              src="./images/NICHAT LOGO .PNG.png"
+              alt="NICHAT Logo"
+              class="nichat-logo"
+            >
+          </div>
+
+          <div class="brand-text">
+            <span class="brand-name">NICHAT</span>
+            <small>Stay connected</small>
+          </div>
+
+        </div>
+
+        <div class="sidebar-header-actions">
+
+          <button
+            type="button"
+            class="icon-btn"
+            title="New chat"
+            aria-label="New chat"
+          >
+            <i class="fa-regular fa-pen-to-square"></i>
+          </button>
+
+          <button
+            type="button"
+            class="icon-btn"
+            title="More options"
+            aria-label="More options"
+          >
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- My Profile -->
+      <div class="profile-card">
+
+        <div class="profile-avatar" id="myAvatar">
+          <i class="fa-solid fa-user"></i>
+          <span class="online-dot"></span>
+        </div>
+
+        <div class="profile-info">
+          <strong>My Profile</strong>
+          <span>Available</span>
+        </div>
+
+        <button
+          type="button"
+          class="profile-menu"
+          title="Profile settings"
+        >
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+      </div>
+
+
+      <!-- Search -->
+      <div class="search-container">
+
+        <div class="search-box">
+
+          <i class="fa-solid fa-magnifying-glass"></i>
+
+          <input
+            type="text"
+            id="userSearch"
+            placeholder="Search conversations..."
+            autocomplete="off"
+          >
+
+          <span class="search-shortcut">⌘ K</span>
+
+        </div>
+
+      </div>
+
+
+      <!-- Sidebar Tabs -->
+      <div class="sidebar-tabs">
+
+        <button class="sidebar-tab active" type="button">
+          <i class="fa-regular fa-message"></i>
+          Chats
+        </button>
+
+        <button class="sidebar-tab" type="button">
+          <i class="fa-solid fa-user-group"></i>
+          Contacts
+        </button>
+
+      </div>
+
+
+      <!-- Conversation Title -->
+      <div class="conversation-heading">
+
+        <span>Recent chats</span>
+
+        <button type="button" title="More">
+          <i class="fa-solid fa-ellipsis"></i>
+        </button>
+
+      </div>
+
+
+      <!-- Users -->
+      <div
+        class="chat-list"
+        id="usersList"
+      >
+
+        <div class="loading">
+          <div class="loading-spinner"></div>
+          <span>Loading conversations...</span>
+        </div>
+
+      </div>
+
+
+      <!-- Sidebar Bottom -->
+      <div class="sidebar-footer">
+
+        <button type="button">
+          <i class="fa-solid fa-gear"></i>
+          <span>Settings</span>
+        </button>
+
+        <button type="button">
+          <i class="fa-regular fa-circle-question"></i>
+          <span>Help</span>
+        </button>
+
+      </div>
+
+    </aside>
+
+
+    <!-- =========================================================
+         CHAT AREA
+    ========================================================== -->
+    <main class="chat-area">
+
+      <!-- Chat Header -->
+      <header class="chat-header">
+
+        <div class="chat-user">
+
+          <div class="chat-avatar" id="chatAvatar">
+            <i class="fa-regular fa-comment"></i>
+            <span class="chat-online-dot"></span>
+          </div>
+
+          <div class="chat-user-info">
+
+            <h3 id="chatUserName">
+              Select a person
+            </h3>
+
+            <p id="chatStatus">
+              <span class="status-indicator"></span>
+              Choose someone to start chatting
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="chat-actions">
+
+          <button
+            type="button"
+            title="Search in conversation"
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+
+          <button
+            type="button"
+            title="Voice call"
+          >
+            <i class="fa-solid fa-phone"></i>
+          </button>
+
+          <button
+            type="button"
+            title="Video call"
+          >
+            <i class="fa-solid fa-video"></i>
+          </button>
+
+          <span class="action-divider"></span>
+
+          <button
+            type="button"
+            title="More options"
+          >
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </button>
+
+        </div>
+
+      </header>
+
+
+      <!-- =======================================================
+           MESSAGES
+      ======================================================== -->
+      <section
+        class="messages"
+        id="messages"
+      >
+
+        <!-- Decorative Background -->
+        <div class="chat-pattern"></div>
+
+        <!-- Welcome -->
+        <div class="welcome-message">
+
+          <div class="welcome-logo">
+            <img
+              src="./images/NICHAT LOGO .PNG.png"
+              alt="NICHAT"
+            >
+          </div>
+
+          <div class="welcome-content">
+
+            <span class="welcome-label">
+              PRIVATE & SECURE MESSAGING
+            </span>
+
+            <h1>
+              Welcome to <span>NICHAT</span>
+            </h1>
+
+            <p>
+              Connect with your friends, share moments,
+              and enjoy meaningful conversations.
+            </p>
+
+          </div>
+
+          <div class="welcome-features">
+
+            <div class="welcome-feature">
+              <i class="fa-solid fa-lock"></i>
+              <span>Private conversations</span>
+            </div>
+
+            <div class="welcome-feature">
+              <i class="fa-solid fa-bolt"></i>
+              <span>Fast messaging</span>
+            </div>
+
+            <div class="welcome-feature">
+              <i class="fa-solid fa-image"></i>
+              <span>Share anything</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =======================================================
+           MESSAGE COMPOSER
+      ======================================================== -->
+      <form
+        class="message-input"
+        id="messageForm"
+      >
+
+        <div class="composer-left">
+
+          <button
+            type="button"
+            class="composer-btn"
+            title="Emoji"
+            aria-label="Emoji"
+          >
+            <i class="fa-regular fa-face-smile"></i>
+          </button>
+
+          <button
+            type="button"
+            class="composer-btn"
+            title="Attach file"
+            aria-label="Attach file"
+          >
+            <i class="fa-solid fa-paperclip"></i>
+          </button>
+
+        </div>
+
+
+        <div class="input-wrapper">
+
+          <input
+            type="text"
+            id="messageInput"
+            placeholder="Select a person to start messaging..."
+            disabled
+            autocomplete="off"
+          >
+
+          <button
+            type="button"
+            class="input-action"
+            title="Add image"
+          >
+            <i class="fa-regular fa-image"></i>
+          </button>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="voice-btn"
+          title="Voice message"
+          aria-label="Voice message"
+        >
+          <i class="fa-solid fa-microphone"></i>
+        </button>
+
+
+        <button
+          type="submit"
+          id="sendBtn"
+          class="send-btn"
+          disabled
+          title="Send message"
+          aria-label="Send message"
+        >
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+
+      </form>
+
+
+      <!-- Encryption Notice -->
+      <div class="encryption-notice">
+
+        <i class="fa-solid fa-lock"></i>
+
+        <span>
+          Your conversations are private
+        </span>
+
+      </div>
+
+    </main>
+
+  </div>
+
+
+  <!-- Dashboard JavaScript -->
+  <script
+    type="module"
+    src="./dashboard.js"
+  ></script>
+
+</body>
+</html>

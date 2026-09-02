@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    NICHAT | Create Account
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="./auth.css"
+  >
+
+</head>
+
+
+<body>
+
+  <main class="auth-page">
+
+    <!-- LEFT SIDE -->
+    <section class="auth-showcase">
+
+      <div class="showcase-content">
+
+        <div class="brand">
+
+          <img
+            src="./images/nichat-logo.png"
+            alt="NICHAT Logo"
+            class="brand-logo"
+          >
+
+          <span>NICHAT</span>
+
+        </div>
+
+
+        <div class="showcase-text">
+
+          <div class="chat-icon">
+            ✨
+          </div>
+
+          <h1>
+            Your next<br>
+            conversation starts here.
+          </h1>
+
+          <p>
+            Join NICHAT and start connecting
+            with people who matter to you.
+          </p>
+
+        </div>
+
+
+        <div class="feature-list">
+
+          <div class="feature">
+
+            <span>👋</span>
+
+            <p>
+              Meet new people
+            </p>
+
+          </div>
+
+
+          <div class="feature">
+
+            <span>💬</span>
+
+            <p>
+              Start meaningful chats
+            </p>
+
+          </div>
+
+
+          <div class="feature">
+
+            <span>🌍</span>
+
+            <p>
+              Stay connected
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- RIGHT SIDE -->
+    <section class="auth-panel">
+
+      <div class="auth-card">
+
+        <div class="mobile-brand">
+
+          <img
+            src="./images/nichat-logo.png"
+            alt="NICHAT Logo"
+          >
+
+          <span>
+            NICHAT
+          </span>
+
+        </div>
+
+
+        <div class="auth-heading">
+
+          <span class="welcome-tag">
+            JOIN NICHAT
+          </span>
+
+          <h2>
+            Create your account
+          </h2>
+
+          <p>
+            Start chatting and connecting today.
+          </p>
+
+        </div>
+
+
+        <form id="signupForm">
+
+          <div class="input-group">
+
+            <label for="name">
+              Full Name
+            </label>
+
+            <div class="input-wrapper">
+
+              <span class="input-icon">
+                👤
+              </span>
+
+              <input
+                type="text"
+                id="name"
+                placeholder="Your full name"
+                required
+                autocomplete="name"
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="input-group">
+
+            <label for="email">
+              Email Address
+            </label>
+
+            <div class="input-wrapper">
+
+              <span class="input-icon">
+                ✉
+              </span>
+
+              <input
+                type="email"
+                id="email"
+                placeholder="you@example.com"
+                required
+                autocomplete="email"
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="input-group">
+
+            <label for="password">
+              Password
+            </label>
+
+            <div class="input-wrapper">
+
+              <span class="input-icon">
+                🔒
+              </span>
+
+              <input
+                type="password"
+                id="password"
+                placeholder="Create a password"
+                required
+                minlength="6"
+                autocomplete="new-password"
+              >
+
+            </div>
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="auth-button"
+          >
+
+            Create Account
+
+            <span>
+              →
+            </span>
+
+          </button>
+
+
+          <p
+            id="authMessage"
+            class="auth-message"
+          ></p>
+
+        </form>
+
+
+        <div class="auth-footer">
+
+          <p>
+            Already have an account?
+          </p>
+
+          <a href="./login.html">
+            Login
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script
+    type="module"
+    src="./signup.js"
+  ></script>
+
+</body>
+</html>
