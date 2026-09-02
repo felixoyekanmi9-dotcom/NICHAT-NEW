@@ -43,26 +43,10 @@ const messageInput = document.getElementById("messageInput");
 const sendBtn = document.getElementById("sendBtn");
 
 const myAvatar = document.getElementById("myAvatar");
-/* =========================================================
-   OPEN CHAT
-========================================================= */
+const logoutBtn = document.getElementById("logoutBtn");
+const backToChatsBtn = document.getElementById("backToChatsBtn");
 
-async function openChat(user) {
-  openChatView(); // Swaps view on mobile screens
 
-  selectedUser = user;
-  
-  // ... rest of your openChat function continues as normal
-// Mobile View Handlers
-function openChatView() {
-  if (window.innerWidth <= 768) {
-    document.body.classList.add("chat-active");
-  }
-}
-
-function closeChatView() {
-  document.body.classList.remove("chat-active");
-}
 /* =========================================================
    APP STATE
 ========================================================= */
@@ -77,6 +61,21 @@ let unsubscribeMessages = null;
 let unsubscribeChats = null;
 
 let isSending = false;
+
+
+/* =========================================================
+   MOBILE VIEW HANDLERS
+========================================================= */
+
+function openChatView() {
+  if (window.innerWidth <= 768) {
+    document.body.classList.add("chat-active");
+  }
+}
+
+function closeChatView() {
+  document.body.classList.remove("chat-active");
+}
 
 
 /* =========================================================
@@ -200,7 +199,7 @@ async function loadUsers() {
     usersList.innerHTML = `
       <div class="loading error-state">
         <i class="fa-solid fa-triangle-exclamation"></i>
-        <span>Could not load users.</span>
+        <span>Could not load users. Check permissions.</span>
       </div>
     `;
 
@@ -481,6 +480,8 @@ function displayUsers(users) {
 ========================================================= */
 
 async function openChat(user) {
+
+  openChatView();
 
   selectedUser = user;
 
@@ -1347,11 +1348,8 @@ function escapeAttribute(value) {
 
 
 /* =========================================================
-   LOGOUT
+   LOGOUT & ACTIONS
 ========================================================= */
-
-// Logout Action (Moved to the dedicated Logout Button)
-const logoutBtn = document.getElementById("logoutBtn");
 
 if (logoutBtn) {
   logoutBtn.addEventListener("click", async () => {
@@ -1371,25 +1369,24 @@ if (logoutBtn) {
   });
 }
 
-// Profile Avatar Action (For opening profile details instead of logging out)
 if (myAvatar) {
   myAvatar.addEventListener("click", () => {
-    // Add profile modal or profile page logic here if needed
     console.log("Profile avatar clicked");
   });
 }
 
+
 /* =========================================================
    MOBILE BACK BUTTON
 ========================================================= */
-
-const backToChatsBtn = document.getElementById("backToChatsBtn");
 
 if (backToChatsBtn) {
   backToChatsBtn.addEventListener("click", () => {
     closeChatView();
   });
 }
+
+
 /* =========================================================
    CLEANUP
 ========================================================= */
@@ -1402,4 +1399,4 @@ window.addEventListener("beforeunload", () => {
   if (unsubscribeChats) {
     unsubscribeChats();
   }
-});
+})
