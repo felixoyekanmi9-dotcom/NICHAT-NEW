@@ -1,0 +1,13 @@
+{
+  "name": "nichat-new",
+  "version": "1.0.0",
+  "description": "NICHAT messaging platform",
+  "main": "dashboard.js",
+  "type": "module",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
