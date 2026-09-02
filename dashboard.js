@@ -43,8 +43,26 @@ const messageInput = document.getElementById("messageInput");
 const sendBtn = document.getElementById("sendBtn");
 
 const myAvatar = document.getElementById("myAvatar");
+/* =========================================================
+   OPEN CHAT
+========================================================= */
 
+async function openChat(user) {
+  openChatView(); // Swaps view on mobile screens
 
+  selectedUser = user;
+  
+  // ... rest of your openChat function continues as normal
+// Mobile View Handlers
+function openChatView() {
+  if (window.innerWidth <= 768) {
+    document.body.classList.add("chat-active");
+  }
+}
+
+function closeChatView() {
+  document.body.classList.remove("chat-active");
+}
 /* =========================================================
    APP STATE
 ========================================================= */
@@ -1361,7 +1379,17 @@ if (myAvatar) {
   });
 }
 
+/* =========================================================
+   MOBILE BACK BUTTON
+========================================================= */
 
+const backToChatsBtn = document.getElementById("backToChatsBtn");
+
+if (backToChatsBtn) {
+  backToChatsBtn.addEventListener("click", () => {
+    closeChatView();
+  });
+}
 /* =========================================================
    CLEANUP
 ========================================================= */
