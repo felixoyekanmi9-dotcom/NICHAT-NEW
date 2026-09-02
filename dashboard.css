@@ -1993,3 +1993,177 @@ body {
   background-color: #ffebee;
   color: #d32f2f;
 }
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  /* Default state: Show sidebar, hide chat main area */
+  .sidebar {
+    width: 100% !important;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .chat-area {
+    width: 100% !important;
+    height: 100%;
+    display: none; /* Hidden until a chat is clicked */
+    flex-direction: column;
+  }
+
+  /* Active state when chatting */
+  body.chat-active .sidebar {
+    display: none;
+  }
+
+  body.chat-active .chat-area {
+    display: flex;
+  }
+
+  /* Chat header & back button adjustments */
+  .chat-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+  }
+
+  .back-to-chats-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    padding: 5px;
+  }
+}
+
+/* Hide back button on desktop screens */
+@media screen and (min-width: 769px) {
+  .back-to-chats-btn {
+    display: none !important;
+  }
+}
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  /* Default state: Show sidebar, hide chat main area */
+  .sidebar {
+    width: 100% !important;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .chat-area {
+    width: 100% !important;
+    height: 100%;
+    display: none; /* Hidden until a chat is clicked */
+    flex-direction: column;
+  }
+
+  /* Active state when chatting */
+  body.chat-active .sidebar {
+    display: none;
+  }
+
+  body.chat-active .chat-area {
+    display: flex;
+  }
+
+  /* Chat header & back button adjustments */
+  .chat-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+  }
+
+  .back-to-chats-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    padding: 5px;
+  }
+}
+
+/* Hide back button on desktop screens */
+@media screen and (min-width: 769px) {
+  .back-to-chats-btn {
+    display: none !important;
+  }
+}
+/* =========================================================
+   MOBILE RESPONSIVE LAYOUT
+========================================================= */
+
+/* Hide mobile back button on desktop */
+.back-to-chats-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: inherit;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .app {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-width: 100%;
+    height: 100vh;
+  }
+
+  .chat-area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    background-color: var(--bg-color, #ffffff);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  /* Show back button on mobile */
+  .back-to-chats-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Active state class toggled by JS */
+  body.show-chat .chat-area {
+    transform: translateX(0);
+  }
+}
