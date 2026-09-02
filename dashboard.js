@@ -1332,44 +1332,33 @@ function escapeAttribute(value) {
    LOGOUT
 ========================================================= */
 
-if (myAvatar) {
+// Logout Action (Moved to the dedicated Logout Button)
+const logoutBtn = document.getElementById("logoutBtn");
 
-  myAvatar.addEventListener(
-    "click",
-    async () => {
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", async () => {
+    const confirmLogout = confirm("Do you want to logout?");
 
-      const confirmLogout =
-        confirm(
-          "Do you want to logout?"
-        );
-
-      if (!confirmLogout) {
-        return;
-      }
-
-      try {
-
-        await signOut(auth);
-
-        window.location.href =
-          "./login.html";
-
-      } catch (error) {
-
-        console.error(
-          "Logout error:",
-          error
-        );
-
-        alert(
-          "Could not logout."
-        );
-
-      }
-
+    if (!confirmLogout) {
+      return;
     }
-  );
 
+    try {
+      await signOut(auth);
+      window.location.href = "./login.html";
+    } catch (error) {
+      console.error("Logout error:", error);
+      alert("Could not logout.");
+    }
+  });
+}
+
+// Profile Avatar Action (For opening profile details instead of logging out)
+if (myAvatar) {
+  myAvatar.addEventListener("click", () => {
+    // Add profile modal or profile page logic here if needed
+    console.log("Profile avatar clicked");
+  });
 }
 
 
@@ -1377,17 +1366,12 @@ if (myAvatar) {
    CLEANUP
 ========================================================= */
 
-window.addEventListener(
-  "beforeunload",
-  () => {
-
-    if (unsubscribeMessages) {
-      unsubscribeMessages();
-    }
-
-    if (unsubscribeChats) {
-      unsubscribeChats();
-    }
-
+window.addEventListener("beforeunload", () => {
+  if (unsubscribeMessages) {
+    unsubscribeMessages();
   }
-);
+
+  if (unsubscribeChats) {
+    unsubscribeChats();
+  }
+});
